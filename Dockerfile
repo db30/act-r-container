@@ -23,11 +23,11 @@ RUN mkdir -p /home/actr && \
 
 
 # setup lisp environment
-RUN wget http://prdownloads.sourceforge.net/sbcl/sbcl-2.0.9-x86-64-linux-binary.tar.bz2
-RUN tar -xf sbcl-2.0.9-x86-64-linux-binary.tar.bz2
-RUN rm sbcl-2.0.9-x86-64-linux-binary.tar.bz2
-RUN cd sbcl-2.0.9-x86-64-linux && sh install.sh
-RUN rm -r sbcl-2.0.9-x86-64-linux
+RUN wget http://prdownloads.sourceforge.net/sbcl/sbcl-2.0.0-x86-64-linux-binary.tar.bz2
+RUN tar -xf sbcl-2.0.0-x86-64-linux-binary.tar.bz2
+RUN rm sbcl-2.0.0-x86-64-linux-binary.tar.bz2
+RUN cd sbcl-2.0.0-x86-64-linux && sh install.sh
+RUN rm -r sbcl-2.0.0-x86-64-linux
 
 USER actr:actr
 RUN wget https://beta.quicklisp.org/quicklisp.lisp
@@ -43,4 +43,4 @@ RUN cp /ACT-R/run-node-env.lisp /ACT-R/actr7.x/user-loads/
 RUN sbcl --quit --load quicklisp/setup.lisp --eval '(push :standalone *features*)' --load actr7.x/load-act-r.lisp
 
 
-ENTRYPOINT [ "sbcl", "--load", "quicklisp/setup.lisp", "--load", "actr7.x/load-act-r.lisp", "--eval", "(progn (init-des) (echo-act-r-output) (mp-print-versions) (run-node-env))" ]
+ENTRYPOINT [ "sbcl", "--load", "quicklisp/setup.lisp", "--load", "actr7.x/load-act-r.lisp", "--eval", "(progn (init-des) (echo-act-r-output) (mp-print-versions) (run-node-env))"]
