@@ -23,11 +23,11 @@ RUN mkdir -p /home/actr && \
 
 
 # setup lisp environment
-RUN wget http://prdownloads.sourceforge.net/sbcl/sbcl-2.0.0-x86-64-linux-binary.tar.bz2
-RUN tar -xf sbcl-2.0.0-x86-64-linux-binary.tar.bz2
-RUN rm sbcl-2.0.0-x86-64-linux-binary.tar.bz2
-RUN cd sbcl-2.0.0-x86-64-linux && sh install.sh
-RUN rm -r sbcl-2.0.0-x86-64-linux
+RUN wget http://prdownloads.sourceforge.net/sbcl/sbcl-2.0.9-x86-64-linux-binary.tar.bz2
+RUN tar -xf sbcl-2.0.9-x86-64-linux-binary.tar.bz2
+RUN rm sbcl-2.0.9-x86-64-linux-binary.tar.bz2
+RUN cd sbcl-2.0.9-x86-64-linux && sh install.sh
+RUN rm -r sbcl-2.0.9-x86-64-linux
 
 USER actr:actr
 RUN wget https://beta.quicklisp.org/quicklisp.lisp
