@@ -24,9 +24,7 @@ RUN adduser --disabled-password \
     ${NB_USER}
 
 
-
 WORKDIR ${HOME}
-
 
 # setup lisp environment
 
@@ -38,39 +36,31 @@ RUN cd sbcl-2.0.9-x86-64-linux && \
     cd .. && \
     rm -r sbcl-2.0.9-x86-64-linux
 
-
-# Use actr user and group for non-root environments
-#RUN groupadd --gid 1001 actr
-#RUN useradd -u 1001 -g actr actr
-#RUN mkdir -p /home/actr && \
-#    chown -R actr:actr /home/actr /ACT-R
-
-#WORKDIR /ACT-R
-
-COPY . .
-
-USER root
-RUN chown -R ${NB_UID} ${HOME}
-
-
-
-
-#USER actr:actr
-
 USER ${NB_USER}
 
 RUN wget https://beta.quicklisp.org/quicklisp.lisp && \
     sbcl --quit --load quicklisp.lisp --eval '(quicklisp-quickstart:install :path "quicklisp")' && \
     rm quicklisp.lisp
 
-
 RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.x.zip && \
     unzip actr7.x.zip  && \
     rm -r actr7.x.zip
+
+COPY . .
+
+USER root
+RUN chown -R ${NB_UID} ${HOME}
+RUN chmod 777 start-it.sh && mv start-it.sh /start-it.sh
+
+
+USER ${NB_USER}
 
 RUN cp run-node-env.lisp actr7.x/user-loads/
 
 RUN sbcl --quit --load quicklisp/setup.lisp --eval '(push :standalone *features*)' --load actr7.x/load-act-r.lisp
 
-ENTRYPOINT [ "sbcl", "--load", "quicklisp/setup.lisp", "--load", "actr7.x/load-act-r.lisp", "--eval", "(progn (init-des) (echo-act-r-output) (mp-print-versions) (run-node-env))"]
+#ENTRYPOINT [ "sbcl", "--load", "quicklisp/setup.lisp", "--load", "actr7.x/load-act-r.lisp", "--eval", "(progn (init-des) (echo-act-r-output) (mp-print-versions) (run-node-env))"]
+
+
+ENTRYPOINT ["/start-it.sh"]
 
