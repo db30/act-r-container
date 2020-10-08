@@ -10,7 +10,7 @@ RUN apt-get install -y nodejs
 RUN npm install --save express
 RUN npm install --save socket.io
 
-RUN pip install --no-cache notebook
+RUN pip install --no-cache notebook numpy matplotlib scipy
 
 ARG NB_USER=actr
 ARG NB_UID=1000
@@ -64,4 +64,3 @@ RUN sbcl --quit --load quicklisp/setup.lisp --eval '(push :standalone *features*
 
 
 ENTRYPOINT ["/start-it.sh"]
-
