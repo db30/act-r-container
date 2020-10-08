@@ -56,6 +56,7 @@ RUN chmod 777 start-it.sh && mv start-it.sh /start-it.sh
 USER ${NB_USER}
 
 RUN cp run-node-env.lisp actr7.x/user-loads/
+RUN cp actr7.x/tutorial/python/actr.py andrea
 
 RUN sbcl --quit --load quicklisp/setup.lisp --eval '(push :standalone *features*)' --load actr7.x/load-act-r.lisp
 
