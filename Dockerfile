@@ -55,7 +55,7 @@ RUN chmod 777 start-it.sh && mv start-it.sh /start-it.sh
 
 USER ${NB_USER}
 
-#RUN cp run-node-env.lisp actr7.x/user-loads/
+RUN cp run-node-env.lisp actr7.x/user-loads/
 RUN cp actr7.x/tutorial/python/actr.py andrea
 RUN cp actr7.x/tutorial/python/actr.py .
 
