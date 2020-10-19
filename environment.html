@@ -13,7 +13,7 @@
 
        console.log(document);
       
-   var socket = io('user/db30-act-r-container-9p1ryxid/proxy/4000/environment');
+   var socket = io(document.baseURI + 'proxy/4000/environment');
    var name_string = "";
    var cmdMap = new Map;
    var cmd_id = 0;
