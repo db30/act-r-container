@@ -1,14 +1,15 @@
 <html>
  <body>
 
-        
-  <script src="/4000/socket.io/socket.io.js"></script>
+  <script 
+     var address = document.baseURI ;
+  </script>    
+  <script src= address + "/socket.io/socket.io.js"></script>
 
   <script> // General communication with the node.js interface to ACT-R
 
        console.log(document);
       
-   var address = document.baseURI ;
    console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
 
    var socket = io('ws'+ address.slice(address.indexOf(':')) + '/environment');
