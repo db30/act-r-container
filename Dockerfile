@@ -60,8 +60,6 @@ RUN cp actr7.x/tutorial/python/actr.py andrea
 RUN cp actr7.x/tutorial/python/actr.py .
 RUN cp environment.js actr7.x/examples/connections/nodejs/
 RUN cp environment.html actr7.x/examples/connections/nodejs/
-RUN mv cert.pem actr7.x/examples/connections/nodejs/
-RUN mv key.pem actr7.x/examples/connections/nodejs/
 
 
 RUN sbcl --quit --load quicklisp/setup.lisp --eval '(push :standalone *features*)' --load actr7.x/load-act-r.lisp
