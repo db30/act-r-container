@@ -15,14 +15,7 @@
 
 
 var app = require('express')();
-var http = require('https');
-var fs = require('fs');
-
-var options = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
-};
-
+var http = require('http');
 var io = require('socket.io')(http);
 
 io.set('origins', '*:*');
@@ -45,7 +38,7 @@ app.get('/expwindow.html', function(req,res) {
 
 // Start the http server on port 4000.
 
-http.createServer(options).listen(4000);
+http.listen(4000);
 
 
 // Connect to ACT-R
