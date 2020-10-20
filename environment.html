@@ -2,13 +2,17 @@
  <body>
 
         
-  <script src="4000/socket.io/socket.io.js"></script>
+  <script src="socket.io/socket.io.js"></script>
 
   <script> // General communication with the node.js interface to ACT-R
 
        console.log(document);
       
-   var socket = io(document.baseURI + 'proxy/4000/environment');
+   var address = document.baseURI ;
+   console.log(address.slice(address.indexOf(':')));
+
+   var socket = io('ws'+ address.slice(address.indexOf(':')) + '/environment');
+
    var name_string = "";
    var cmdMap = new Map;
    var cmd_id = 0;
