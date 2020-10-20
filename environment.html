@@ -2,14 +2,14 @@
  <body>
 
         
-  <script src="socket.io/socket.io.js"></script>
+  <script src="/4000/socket.io/socket.io.js"></script>
 
   <script> // General communication with the node.js interface to ACT-R
 
        console.log(document);
       
    var address = document.baseURI ;
-   console.log(address.slice(address.indexOf(':')));
+   console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
 
    var socket = io('ws'+ address.slice(address.indexOf(':')) + '/environment');
 
