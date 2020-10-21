@@ -10,9 +10,9 @@
 
        console.log(document);
       
-   console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
+//   console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
 
-   var socket = io('ws'+ address.slice(address.indexOf(':')) + '/environment');
+   var socket = io('/environment');
 
    var name_string = "";
    var cmdMap = new Map;
