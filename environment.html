@@ -12,7 +12,7 @@
       
 //   console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
 
-   var socket = io('/environment');
+   var socket = io(address + '/environment');
 
    var name_string = "";
    var cmdMap = new Map;
