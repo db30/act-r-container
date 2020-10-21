@@ -23,7 +23,7 @@
 //   var socket = io(address+'environment');
 
    const socket = io('/environment', {
-  path: address.slice(address.indexOf('/user'))
+  path: address.slice(address.indexOf('/user')+"hub/socket.io")
 });
    var name_string = "";
    var cmdMap = new Map;
