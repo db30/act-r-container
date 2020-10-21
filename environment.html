@@ -7,7 +7,7 @@
   </script>    
   <script src=  "socket.io/socket.io.js" ></script>
   <script>
-   print ("<h1>FOO</ha>");
+   output ("<h1>FOO</h1>");
   </script>
         
   
@@ -19,7 +19,7 @@
       
 //   console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
 
-   var socket = io(address+'/environment');
+   var socket = io(address+'environment');
 
    var name_string = "";
    var cmdMap = new Map;
