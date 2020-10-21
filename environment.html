@@ -6,7 +6,12 @@
      var sio = address + "socket.io/socket.io.js";
   </script>    
   <script src=  "socket.io/socket.io.js" ></script>
-
+  <script>
+   print ("<h1>FOO</ha>");
+  </script>
+        
+  
+  
   <script> // General communication with the node.js interface to ACT-R
 
        console.log(address);
@@ -14,7 +19,7 @@
       
 //   console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
 
-   var socket = io('/environment');
+   var socket = io(address+'/environment');
 
    var name_string = "";
    var cmdMap = new Map;
