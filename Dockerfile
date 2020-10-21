@@ -42,9 +42,9 @@ RUN wget https://beta.quicklisp.org/quicklisp.lisp && \
     sbcl --quit --load quicklisp.lisp --eval '(quicklisp-quickstart:install :path "quicklisp")' && \
     rm quicklisp.lisp
 
-RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.binder.zip && \
-    unzip actr7.binder.zip  && \
-    rm -r actr7.binder.zip
+RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.x.zip && \
+    unzip actr7.x.zip  && \
+    rm -r actr7.x.zip
 
 COPY . .
 
