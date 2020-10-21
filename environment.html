@@ -25,7 +25,7 @@
    console.log(address.slice(address.indexOf('/user'))+"hub/socket.io");
 
    const socket = io(address+'environment', {
-  path: address.slice(address.indexOf('/user'))+"hub/socket.io"
+  path: address.slice(address.indexOf('/user'))+"socket.io"
 });
    var name_string = "";
    var cmdMap = new Map;
