@@ -3,12 +3,14 @@
 
   <script> 
      var address = document.baseURI ;
+     var sio = address + "socket.io/socket.io.js";
   </script>    
-  <script src=  "socket.io/socket.io.js"></script>
+  <script src=  sio ></script>
 
   <script> // General communication with the node.js interface to ACT-R
 
-       console.log(document);
+       console.log(address);
+       console.log(sio);
       
 //   console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
 
