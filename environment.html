@@ -20,11 +20,11 @@
 //   console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
 
 //   var socket = io('/environment');
-   var socket = io(address+'environment');
+//   var socket = io(address+'environment');
 
-   //   const socket = io(address+'environment', {
-//  path: address.slice(address.indexOf('/user'))
-//});
+   const socket = io('/environment', {
+  path: address.slice(address.indexOf('/user'))
+});
    var name_string = "";
    var cmdMap = new Map;
    var cmd_id = 0;
