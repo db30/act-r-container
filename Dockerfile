@@ -42,9 +42,9 @@ RUN wget https://beta.quicklisp.org/quicklisp.lisp && \
     sbcl --quit --load quicklisp.lisp --eval '(quicklisp-quickstart:install :path "quicklisp")' && \
     rm quicklisp.lisp
 
-RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.x.zip && \
-    unzip actr7.x.zip  && \
-    rm -r actr7.x.zip
+RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.container.zip && \
+    unzip actr7.container.zip  && \
+    rm -r actr7.container.zip
 
 COPY . .
 
@@ -55,16 +55,11 @@ RUN chmod 777 start-it.sh && mv start-it.sh /start-it.sh
 
 USER ${NB_USER}
 
-RUN cp run-node-env.lisp actr7.x/user-loads/
-#RUN cp actr7.x/tutorial/python/actr.py andrea
+RUN mv run-node-env.lisp actr7.x/user-loads/
 RUN cp actr7.x/tutorial/python/actr.py .
-RUN cp environment.js actr7.x/examples/connections/nodejs/
-RUN cp environment.html actr7.x/examples/connections/nodejs/
+RUN mv environment.html actr7.x/examples/connections/nodejs/
 
 
 RUN sbcl --quit --load quicklisp/setup.lisp --eval '(push :standalone *features*)' --load actr7.x/load-act-r.lisp
-
-#ENTRYPOINT [ "sbcl", "--load", "quicklisp/setup.lisp", "--load", "actr7.x/load-act-r.lisp", "--eval", "(progn (init-des) (echo-act-r-output) (mp-print-versions) (run-node-env))"]
-
 
 ENTRYPOINT ["/start-it.sh"]
