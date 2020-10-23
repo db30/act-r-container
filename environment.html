@@ -1,37 +1,21 @@
 <html>
  <body>
 
-  <script> 
-     var address = document.baseURI ;
-     var sio = address + "socket.io/socket.io.js";
-  </script>    
- <!-- when no trailing slash <script src=  "4000/socket.io/socket.io.js" ></script> --!>
   
-  <script src=  "socket.io/socket.io.js" ></script>
-
-        
-  
+  <script src= "socket.io/socket.io.js" ></script>
   
   <script> // General communication with the node.js interface to ACT-R
 
-       console.log(address);
-      
-//   console.log('ws'+ address.slice(address.indexOf(':')) + '/environment');
-
-//   var socket = io('/environment');
-//   var socket = io(address+'environment');
-
-   console.log(address.slice(address.indexOf('/user'))+"socket.io");
+   var address = document.baseURI ;
 
    const socket = io('/environment', {
-  path: address.slice(address.indexOf('/user'))+"socket.io"
-});
+    path: address.slice(address.indexOf('/user'))+"socket.io"
+   });
+
    var name_string = "";
    var cmdMap = new Map;
    var cmd_id = 0;
    var resultMap = new Map;
-
-  console.log(socket);
 
    socket.on('evaluate',function(params_list,id){
      
