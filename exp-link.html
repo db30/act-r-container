@@ -1,0 +1,15 @@
+<script>
+   
+    var base = document.baseURI;
+    
+    if (base.indexOf("/files") != -1) {
+      window.location.href = base.slice(0,base.indexOf("/files"))+"/proxy/4000/expwindow.html";
+    } else {
+      if (base.indexOf("/notebook") != -1) {
+        window.location.href = base.slice(0,base.indexOf("/notebook"))+"/proxy/4000/expwindow.html";
+      } else {
+        window.location.href = base+"/proxy/4000/expwindow.html";
+      }
+    }
+    
+</script>
