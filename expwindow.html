@@ -86,7 +86,7 @@
    var address = document.baseURI ;
 
    const socket = io('/expwindow', {
-    path: address.slice(address.indexOf('/user'))+"socket.io"
+    path: address.slice(address.indexOf('/user'),address.indexOf('expwindow'))+"socket.io"
    });
 
    var items = {};
