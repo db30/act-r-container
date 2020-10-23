@@ -57,7 +57,7 @@ USER ${NB_USER}
 
 RUN mv run-node-env.lisp actr7.x/user-loads/
 RUN mv run-node.sh actr7.x/
-RUN cp actr7.x/tutorial/python/actr.py .
+RUN cp actr7.x/tutorial/python/*.py .
 RUN rm README.md
 RUN rm Dockerfile
 
