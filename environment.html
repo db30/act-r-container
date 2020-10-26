@@ -2302,13 +2302,9 @@
      monitor_cmd("warning-trace","monitor_loading");
      monitor_cmd("general-trace","monitor_loading");
 
-     console.log(model);
-
      if (model.selectedIndex != 0) {
 
        selected = model.options[model.selectedIndex];
-
-       console.log(selected.value);
 
        evaluate_cmd("load-act-r-code",null,["ACT-R:tutorial;unit1;"+selected.value],report_load_results);
      }
