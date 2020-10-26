@@ -2295,24 +2295,22 @@
 
      var model = document.getElementById("unit_1_model");
 
-       load_results = "";
+     load_results = "";
 
-       monitor_cmd("model-trace","monitor_loading");
-       monitor_cmd("command-trace","monitor_loading");
-       monitor_cmd("warning-trace","monitor_loading");
-       monitor_cmd("general-trace","monitor_loading");
+     monitor_cmd("model-trace","monitor_loading");
+     monitor_cmd("command-trace","monitor_loading");
+     monitor_cmd("warning-trace","monitor_loading");
+     monitor_cmd("general-trace","monitor_loading");
 
-       console.log(model);
+     console.log(model);
 
-       var selected_model = model.childNodes[model.options.selectedIndex].value;
+     var selected_model = model.childNodes[model.options.selectedIndex].value;
 
-       console.log(selected_model);
+     console.log(selected_model);
 
-       if (selected_model != "") {
-           evaluate_cmd("load-act-r-code",null,["ACT-R:tutorial;unit1;"+selected_model],report_load_results);
-         }
-       }
-
+     if (selected_model != "") {
+       evaluate_cmd("load-act-r-code",null,["ACT-R:tutorial;unit1;"+selected_model],report_load_results);
+     }
    }       
 
    </script>
