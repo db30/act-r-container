@@ -354,7 +354,7 @@
    }     
 
    function load_model(unit) {
-     if (socket.io.opts.hostname == "127.0.0.1" || socket.io.opts.hostname == "localhost") {
+  //   if (socket.io.opts.hostname == "127.0.0.1" || socket.io.opts.hostname == "localhost") {
      
        var input = document.createElement('input');
        input.type = 'file';
@@ -378,9 +378,9 @@
 
        input.click();
 
-     } else {
-       alert("Only local connections may load files.");
-     }
+   //  } else {
+  //     alert("Only local connections may load files.");
+  //   }
    }       
 
    </script>
