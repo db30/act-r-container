@@ -2304,12 +2304,13 @@
 
      console.log(model);
 
-     var selected_model = model.childNodes[model.options.selectedIndex].value;
+     if (model.selectedIndex != 0) {
 
-     console.log(selected_model);
+       selected = model.options[model.selectedIndex];
 
-     if (selected_model != "") {
-       evaluate_cmd("load-act-r-code",null,["ACT-R:tutorial;unit1;"+selected_model],report_load_results);
+       console.log(selected.value);
+
+       evaluate_cmd("load-act-r-code",null,["ACT-R:tutorial;unit1;"+selected.value],report_load_results);
      }
    }       
 
