@@ -328,62 +328,6 @@
   </script>
 
 
-  <script> // handle the selection of files and assume the location based on provided unit #
-
-   var load_results = "";
-
-   function collect_load_results(text) {
-     load_results = load_results + text[1];
-   }
-
-   add_cmd("monitor_loading","environment cmd to monitor output while loading. do not call",collect_load_results,null);
-
-
-   function report_load_results(results) {
-     stop_monitor("model-trace","monitor_loading");
-     stop_monitor("command-trace","monitor_loading");
-     stop_monitor("warning-trace","monitor_loading");
-     stop_monitor("general-trace","monitor_loading");
-
-     if (!results) {
-       alert("Failure loading model\n"+load_results);
-     } else {
-       alert("Successful load\n"+load_results);
-     }
-     load_results = "";
-   }     
-
-   function load_model(unit) {
-  //   if (socket.io.opts.hostname == "127.0.0.1" || socket.io.opts.hostname == "localhost") {
-     
-       var input = document.createElement('input');
-       input.type = 'file';
-
-       load_results = "";
-
-       monitor_cmd("model-trace","monitor_loading");
-       monitor_cmd("command-trace","monitor_loading");
-       monitor_cmd("warning-trace","monitor_loading");
-       monitor_cmd("general-trace","monitor_loading");
-
-       input.onchange = e => { 
-         var file = e.target.files[0]; 
-         if (unit) {
-           var num = [document.getElementById('load_unit').valueAsNumber];
-           evaluate_cmd("load-act-r-code",null,["ACT-R:tutorial;unit"+num+";"+file.name],report_load_results);
-         } else {
-           evaluate_cmd("load-act-r-code",null,["ACT-R:tutorial;lisp;"+file.name],report_load_results);
-         }
-       }
-
-       input.click();
-
-   //  } else {
-  //     alert("Only local connections may load files.");
-  //   }
-   }       
-
-   </script>
 
 
    <script> // The reset, reload, and run actions
@@ -2321,6 +2265,66 @@
 
   </script>
 
+
+  <script> // handle the loading of a tutorial unit model 
+
+   var load_results = "";
+
+   function collect_load_results(text) {
+     load_results = load_results + text[1];
+   }
+
+   add_cmd("monitor_loading","environment cmd to monitor output while loading. do not call",collect_load_results,null);
+
+
+   function report_load_results(results) {
+     stop_monitor("model-trace","monitor_loading");
+     stop_monitor("command-trace","monitor_loading");
+     stop_monitor("warning-trace","monitor_loading");
+     stop_monitor("general-trace","monitor_loading");
+
+     if (!results) {
+       alert("Failure loading model\n"+load_results);
+     } else {
+       alert("Successful load\n"+load_results);
+     }
+     load_results = "";
+   }     
+
+   function unit_1_model() {
+
+     var model = document.getElementById("unit_1_model");
+
+       load_results = "";
+
+       monitor_cmd("model-trace","monitor_loading");
+       monitor_cmd("command-trace","monitor_loading");
+       monitor_cmd("warning-trace","monitor_loading");
+       monitor_cmd("general-trace","monitor_loading");
+
+       console.log(model);
+
+       var selected_model = model.childNodes[model.options.selectedIndex].value;
+
+       console.log(selected_model);
+
+       if (selected_model != "") {
+           evaluate_cmd("load-act-r-code",null,["ACT-R:tutorial;unit1;"+selected_model],report_load_results);
+         }
+       }
+
+   }       
+
+   </script>
+
+
+
+
+
+
+
+
+
   <style>
    .tutor-answer-box {
      display: flex;
@@ -2387,10 +2391,15 @@
       </div>
 
       <div class="button-section"> 
-        <div>Files</div>
-        <button type="button" onclick="load_model(true)">Load ACT-R Tutorial Model</button>
-        <div> Unit <input type="number"  class="enter" value="1" id="load_unit" min="1" max="8"></div>
-        <button type="button" onclick="load_model(false)">Load ACT-R Tutorial Experiment Code</button>
+        <div>Unit 1 Models</div>
+        <button type="button" onclick="load_unit1_model()">Load Tutorial Model</button>
+        <select id="unit_1_model">
+         <option value="">-Select Unit 1 model-</option>
+         <option value="count.lisp">Count</option> 
+         <option value="addition.lsip">Addition</option> 
+         <option value="semantic.lisp">Semantic</option> 
+         <option value="tutor-model.lisp">Tutor Model</option> 
+        </select>
       </div>
   
       <div class="button-section"> 
