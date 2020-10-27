@@ -22,7 +22,9 @@ Windows
 
 docker run -i -p 4000:4000 -p 2650:2650 -v %homedrive%%homepath%\act-r-tutorial:/home/actr/actr7.x/tutorial db30/act-r-container
 
-The -p flags are to expose the ports for the HTML Environment interface and the ACT-R remote interface.  The -v flag sets up the location on computer where the tutorial files will be stored.  The value before the : is the path on the local machine to the files.  It can be anywhere, and will create the directory if it does not already exist.  The example calls above create an act-r-tutorial directory in the user's home directory.
+The -p flags are to expose the ports for the HTML Environment interface and the ACT-R remote interface.  The -v flag sets up the location on the computer where the tutorial files will be stored.  The value before the : is the path on the local machine to the files.  It can be anywhere, and will create the directory if it does not already exist.  The example calls above create an act-r-tutorial directory in the user's home directory.
+
+The Environment will be available from a browser at: localhost:4000 and the experiment window viewer at: localhost:4000/expwindow.html
 
 Note, if you're using MacOS and working with ACT-R from another language, my experience is that it's faster to use the version from the container than it is to run a Lisp locally on the machine!  That's because SBCL is faster than other Lisps, but the MacOS native version of SBCL has some threading or locking performance issues (not entirely sure which).  The SBCL in the container doesn't suffer from those issues, and the container overhead was less costly on my machine than those issues.
 
