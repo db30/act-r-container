@@ -11,6 +11,14 @@ then
   
   sbcl --load "quicklisp/setup.lisp" --load "actr7.x/load-act-r.lisp" --eval '(progn (init-des) (echo-act-r-output) (mp-print-versions) (run-node-env))'
 
+elif [ "$1" = 'play']
+then
+  rm environment.html 
+  rm expwindow.html
+  mv actr7.x/original-tutorial actr7.x/tutorial
+  
+  sbcl --load "quicklisp/setup.lisp" --load "actr7.x/load-act-r.lisp" --eval '(progn (init-des) (echo-act-r-output) (mp-print-versions) (run-node-env))'
+
 else 
   mv environment.html actr7.x/examples/connections/nodejs/
   mv expwindow.html actr7.x/examples/connections/nodejs/
