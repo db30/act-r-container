@@ -51,7 +51,7 @@ COPY . .
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 RUN chmod 777 start-it.sh && mv start-it.sh /start-it.sh
-
+RUN chmod 777 act-r.sh && mv act-r.sh /act-r.sh
 
 USER ${NB_USER}
 

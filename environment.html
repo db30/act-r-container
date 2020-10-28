@@ -2312,6 +2312,15 @@
 
    </script>
 
+ 
+  <script>  // Open the experiment window tool in another window/tab
+
+ 
+   function open_exp_view() {
+     open(document.baseURI+"expwindow.html");
+   }
+   
+  </script>
 
 
 
@@ -2430,7 +2439,8 @@
       <div class="button-section"> 
         <div>Miscellaneous</div>
         <button type="button" onclick="cmd_viewer()">Connections &amp; Commands</button>
-      </div>
+        <button type="button" onclick="open_exp_view()">Open Experiment Window</button>
+     </div>
 
     </div>
 
@@ -2445,4 +2455,3 @@
 
  </body>
 </html>
-
