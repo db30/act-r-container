@@ -28,8 +28,7 @@ The Environment will be available from a browser at: localhost:4000 and the expe
 
 Note, if you're using MacOS and working with ACT-R from another language, my experience is that it's faster to use the version from the container than it is to run a Lisp locally on the machine!  That's because SBCL is faster than other Lisps, but the MacOS native version of SBCL has some threading or locking performance issues (not entirely sure which).  The SBCL in the container doesn't suffer from those issues, and the container overhead was less costly on my machine than those issues.
 
-3) <Not quite working now after the change to create a local volume since Play with Docker doesn't give write access> 
-You could run it similar to step 2 from the Play with Docker site: https://labs.play-with-docker.com/, but that will only give you the Lisp interface and the HTML Environment -- not the ACT-R remote interface or connecting to local files.
+3) You could run it similar to step 2 from the Play with Docker site: https://labs.play-with-docker.com/ .That will only give you the Lisp interface, the HTML Environment, and HTML experiment window viewer, but not the remote interface or connecting to local files.
 
 After starting a new session on Play with Docker you can call this:
 
@@ -39,4 +38,4 @@ Then
 
 docker run -i -p 4000:4000 db30/act-r-container 
 
-Clicking on the 4000 in the top right of the window will open the Environment, and if you open the Environment and then copy the link to a new tab/window and change the environment.html at the end to expwindow.html it'll give you the experiment window viewer.
+Clicking on the 4000 in the top right of the window will open the Environment, and the "Open Experiment WIndow" button will open a window with the experiment window viewer.
