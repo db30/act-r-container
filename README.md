@@ -50,6 +50,4 @@ Windows
 
 docker run -i -p 4000:4000 -p 2650:2650 -p 8888:8888 -v %homedrive%%homepath%\act-r-tutorial:/home/actr/actr7.x/tutorial db30/act-r-container run-jupyter.sh
 
-The -p 8888:8888 exposes the port for the Jupyter notebook server, and you would use a browser to go to http://localhost:8888 to access the notebooks.
-
-
+The -p 8888:8888 exposes the port for the Jupyter notebook server.  Once it finishes starting and is ready it will display some links that you can copy into a browser to connect to the server and access the notebooks.
