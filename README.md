@@ -38,4 +38,10 @@ Then
 
 docker run -i -p 4000:4000 db30/act-r-container act-r.sh
 
+<<<<<<< HEAD
 Clicking on the 4000 at the top of the window will open the Environment, and the "Open Experiment Window" button will open a window with the experiment window viewer.
+=======
+The -p 8888:8888 exposes the port for the Jupyter notebook server, and you would use a browser to go to http://localhost:8888 to access the notebooks.
+
+
+>>>>>>> parent of 2399660... Update README.md
