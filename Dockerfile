@@ -42,11 +42,6 @@ RUN wget https://beta.quicklisp.org/quicklisp.lisp && \
     sbcl --quit --load quicklisp.lisp --eval '(quicklisp-quickstart:install :path "quicklisp")' && \
     rm quicklisp.lisp
 
-RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.container.zip && \
-    unzip actr7.container.zip  && \
-    rm -r actr7.container.zip
-
-COPY . .
 
 USER root
 RUN chown -R ${NB_UID} ${HOME}
@@ -55,6 +50,12 @@ RUN chmod 777 act-r.sh && mv act-r.sh /act-r.sh
 RUN chmod 777 run-jupyter.sh && mv run-jupyter.sh /run-jupyter.sh
 
 USER ${NB_USER}
+
+RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.container.zip && \
+    unzip actr7.container.zip  && \
+    rm -r actr7.container.zip
+
+COPY . .
 
 RUN mv run-node-env.lisp actr7.x/user-loads/
 RUN mv run-node.sh actr7.x/
