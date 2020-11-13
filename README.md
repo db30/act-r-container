@@ -1,12 +1,12 @@
 # act-r-container
-Code to build a Docker container with ACT-R in it along with the Nodejs server running to support the HTML version of the ACT-R Environment and experiment window viewer.
+Code to build a Docker container with ACT-R in it along with the Node.js server running to support the HTML version of the ACT-R Environment and experiment window viewer.
 
 Below are four ways that one could use this without having to rebuild the container.  The first two work online without needing to install any software using the mybinder and Play with Docker free services, and the other two require that one installs the Docker software.  If you have the Docker software you could also use these sources to build a custom version that includes additional models, notebooks, servers, etc.
 
 1) From mybinder.org (or other BinderHub) to run ACT-R from Python in Jupyter notebooks without any local installation necessary.
-There are Jupyter notebooks with some simple examples of running things included, and this button will start it [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/db30/act-r-container/main?filepath=simple.ipynb).
+There are Jupyter notebooks with some simple examples of running the tutorial models, and this button will start it [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/db30/act-r-container/main?filepath=simple.ipynb).
 
-2) You can run the Lisp prompt interface of ACT-R using the Play with Docker site: https://labs.play-with-docker.com/, and you will also have acces to the HTML version of the ACT-R Environment and experiment window viewer.  There is also an editor available in the Play with Docker interface which will allow you to work with the included ACT-R model and code files, but it will not store those files locally (you could cut-and-paste from the Play with Docker editor to a local file if you wanted to save them).
+2) You can run the Lisp prompt interface of ACT-R using the Play with Docker site: https://labs.play-with-docker.com/, and you will also have access to the HTML version of the ACT-R Environment and experiment window viewer.  There is also an editor available in the Play with Docker interface which will allow you to work with the included ACT-R model and code files, but it will not store those files locally (you could cut-and-paste from the Play with Docker editor to a local file if you wanted to save them).
 
 To run it, after starting a new session on Play with Docker you can call this from the prompt:
 
