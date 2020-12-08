@@ -58,8 +58,12 @@ RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.container.zip && \
 
 RUN mv run-node-env.lisp actr7.x/user-loads/
 RUN mv run-node.sh actr7.x/
-RUN mkdir actr-python-tutorial
-RUN cp actr7.x/tutorial/python/*.py actr-python-tutorial
+
+# Instead of copying things why not just export the appropriate path in the start-it script?
+
+#RUN mkdir actr-python-tutorial
+#RUN cp actr7.x/tutorial/python/*.py actr-python-tutorial
+
 RUN rm README.md
 RUN rm Dockerfile
 

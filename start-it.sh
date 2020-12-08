@@ -39,7 +39,8 @@ then
   mv expwindow-jupyter.html actr7.x/examples/connections/nodejs/expwindow.html
  
   cp -n -r -t actr7.x/tutorial actr7.x/original-tutorial/*
-  export PYTHONPATH=${PYTHONPATH}:${HOME}/actr-python-tutorial
+
+  export PYTHONPATH=${PYTHONPATH}:${HOME}/actr7.x/tutorial/python
 
   sbcl --non-interactive --load "quicklisp/setup.lisp" --load "actr7.x/load-act-r.lisp" --eval '(progn (init-des) (run-node-env) (loop))' > /dev/null 2>&1 &
 
@@ -48,8 +49,10 @@ then
 else 
   mv environment.html actr7.x/examples/connections/nodejs/
   mv expwindow.html actr7.x/examples/connections/nodejs/
-  export PYTHONPATH=${PYTHONPATH}:${HOME}/actr-python-tutorial
   mv actr7.x/original-tutorial actr7.x/tutorial
+
+  export PYTHONPATH=${PYTHONPATH}:${HOME}/actr7.x/tutorial/python
+
   rm environment-play-with-docker.html
   rm expwindow-jupyter.html
   rm environment-jupyter.html
