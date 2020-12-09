@@ -59,6 +59,7 @@ else
   
   sbcl --non-interactive --load "quicklisp/setup.lisp" --load "actr7.x/load-act-r.lisp" --eval '(progn (init-des) (run-node-env) (loop))' > /dev/null 2>&1 &
   
+  echo "$@" > cmd.txt
   exec "$@"
 
 fi
