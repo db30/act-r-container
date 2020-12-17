@@ -1,5 +1,5 @@
 # act-r-container
-Code to build a Docker container with ACT-R in it along with the Node.js server running to support the HTML version of the ACT-R Environment and experiment window viewer.
+Code to build a Docker container with ACT-R in it along with the Node.js server running to support the HTML versions of the ACT-R Environment and experiment window viewer.
 
 Below are four ways that one could use this without having to rebuild the container.  The first two work online without needing to install any software using the mybinder and Play with Docker free services, and the other two require that one installs the Docker software.  If you have the Docker software you could also use these sources to build a custom version that includes additional models, notebooks, servers, etc.
 
