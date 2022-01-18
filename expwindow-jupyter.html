@@ -19,6 +19,8 @@
 
   <script src="socket.io/socket.io.js"></script>
 
+  <!--  For the mybinder and jupyter versions use this instead: src="socket.io/socket.io.js" -->
+
   <script>
    var c = document.getElementById("canvas");
    var canvas = c.getContext("2d");
@@ -83,8 +85,21 @@
     canvas.stroke(cursor);
    }
 
-   var address = document.baseURI ;
+   // var socket = io('/expwindow');
 
+
+   // For the mybinder version use this instead of above
+   // 
+   // var address = document.baseURI ;
+   //
+   // const socket = io('/expwindow', {
+   //  path: address.slice(address.indexOf('/user'),address.indexOf('expwindow'))+"socket.io"
+   // });
+
+   // For the jupyter version use this
+
+   var address = document.baseURI ;
+    
    var socket = io('/expwindow', {
     path: "/proxy/4000/socket.io"
    });
