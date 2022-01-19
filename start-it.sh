@@ -15,7 +15,8 @@ then
   
   mv actr7.x/original-tutorial actr7.x/tutorial
   sed -i -e "s/which_interface = 1/which_interface = 4/" -e "s/start-normal -->/start-normal/" -e "s/<\!-- end-normal/end-normal/" -e "s/<\!-- start-container/<\!-- start-container -->/" -e "s/end-container -->/<\!-- end-container -->/" actr7.x/examples/connections/nodejs/environment.html
- 
+  sed -i -e "s/which_interface = 1/which_interface = 4/" actr7.x/examples/connections/nodejs/expwindow.html
+
   /act-r.sh
 
 elif [ "$1" = "run-jupyter.sh" ]
