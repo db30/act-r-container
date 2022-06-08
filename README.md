@@ -34,7 +34,7 @@ Windows
 
 docker run -i -p 4000:4000 -p 2650:2650 -v %homedrive%%homepath%\act-r-tutorial:/home/actr/actr7.x/tutorial db30/act-r-container
 
-The -p flags are to expose the ports for the HTML Environment interface and the ACT-R remote interface respectively.  The -v flag sets up the location on the computer where the tutorial files will be stored.  The value before the : is the path on the local machine to the files.  It can be anywhere, and will create the directory if it does not already exist.  The example calls above create an act-r-tutorial directory in the user's home directory, and it won't overwrite any files already in that directory on the computer so you can safely work on those files across different runs of the container.
+The -p flags are to expose the ports for the HTML Environment interface and the ACT-R remote interface respectively.  The -v flag sets up the location on the computer where the tutorial files will be stored.  The value before the : is the path on the local machine to the files.  It can be anywhere, and will create the directory if it does not already exist, but it is safest to create it in advance because when it gets created by docker it may not have the proper permissions for the current user.  The example calls above create an act-r-tutorial directory in the user's home directory, and it won't overwrite any files already in that directory on the computer so you can safely work on those files across different runs of the container.
 
 The ACT-R Environment will be available from a browser at: http://localhost:4000 and the experiment window viewer at: http://localhost:4000/expwindow.html or by clicking the "Open Experiment Window" button in the Environment.
 
