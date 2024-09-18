@@ -67,7 +67,7 @@ RUN mv run-node.sh actr7.x/
 RUN rm README.md
 RUN rm Dockerfile
 
-RUN mv actr7.x/tutorial actr7.x/original-tutorial
+RUN cp -r actr7.x/tutorial actr7.x/original-tutorial
 
 RUN sbcl --quit --load quicklisp/setup.lisp --eval '(push :standalone *features*)' --load actr7.x/load-act-r.lisp
 
