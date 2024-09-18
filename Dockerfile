@@ -52,7 +52,7 @@ RUN chmod 777 run-jupyter.sh && mv run-jupyter.sh /run-jupyter.sh
 
 USER ${NB_USER}
 
-RUN wget http://act-r.psy.cmu.edu/actr7.x/next/actr7.container.zip && \
+RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.container.zip && \
     unzip actr7.container.zip  && \
     rm -r actr7.container.zip
 
