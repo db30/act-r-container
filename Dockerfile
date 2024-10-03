@@ -1,14 +1,12 @@
-FROM python:3.7-slim
+FROM python:3.12-slim
+
 LABEL maintainer="Dan Bothell <db30@andrew.cmu.edu>"
 
 RUN apt-get update && apt-get install -y
 RUN apt-get install -y wget bzip2 make unzip curl
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get install -y nodejs
-
-RUN npm install --save express
-RUN npm install --save socket.io
 
 RUN pip install --no-cache notebook numpy matplotlib scipy jupyter_server_proxy
 
@@ -28,13 +26,13 @@ WORKDIR ${HOME}
 
 # setup lisp environment
 
-RUN wget http://prdownloads.sourceforge.net/sbcl/sbcl-2.0.9-x86-64-linux-binary.tar.bz2
-RUN tar -xf sbcl-2.0.9-x86-64-linux-binary.tar.bz2 && \
-    rm sbcl-2.0.9-x86-64-linux-binary.tar.bz2
-RUN cd sbcl-2.0.9-x86-64-linux && \
+RUN wget http://prdownloads.sourceforge.net/sbcl/sbcl-2.4.8-x86-64-linux-binary.tar.bz2
+RUN tar -xf sbcl-2.4.8-x86-64-linux-binary.tar.bz2 && \
+    rm sbcl-2.4.8-x86-64-linux-binary.tar.bz2
+RUN cd sbcl-2.4.8-x86-64-linux && \
     sh install.sh && \
     cd .. && \
-    rm -r sbcl-2.0.9-x86-64-linux
+    rm -r sbcl-2.4.8-x86-64-linux
 
 USER ${NB_USER}
 
@@ -52,7 +50,10 @@ RUN chmod 777 run-jupyter.sh && mv run-jupyter.sh /run-jupyter.sh
 
 USER ${NB_USER}
 
-RUN wget http://act-r.psy.cmu.edu/actr7.x/next/actr7.container.zip && \
+RUN npm install --save express
+RUN npm install --save socket.io
+
+RUN wget http://act-r.psy.cmu.edu/actr7.x/actr7.container.zip && \
     unzip actr7.container.zip  && \
     rm -r actr7.container.zip
 
