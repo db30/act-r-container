@@ -5,7 +5,8 @@ Below are four ways that one could use this without having to rebuild the contai
 
 1) From mybinder.org (or other BinderHub) to run ACT-R from Python in Jupyter notebooks without any local installation necessary.
 There are Jupyter notebooks with some simple examples of running the tutorial models, and this button will start it [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/db30/act-r-container/main?filepath=tutorial.ipynb).
-Note: while the tutorial pages and tasks work, there seems to be an issue with the HTML Environment's connection that prevents it from being used.
+
+Note: while the tutorial pages and tasks work, there may be an issue with the HTML Environment's connection that prevents it from being used.
 
 2) You can run the Lisp prompt interface of ACT-R using the Play with Docker site: https://labs.play-with-docker.com/, and you will also have access to the HTML version of the ACT-R Environment and experiment window viewer.  There is also an editor available in the Play with Docker interface which will allow you to work with the included ACT-R model and code files, but it will not store those files locally (you could cut-and-paste from the Play with Docker editor to a local file if you wanted to save them).
 
